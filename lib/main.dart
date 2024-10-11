@@ -5,6 +5,7 @@ void main() {
       home: Scaffold(
     appBar: AppBar(
       title: const Text('First App'),
+      backgroundColor: Colors.purple,
       actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
     ),
     body: const ColorContainer(color: Color.fromARGB(255, 213, 81, 81)),
@@ -24,6 +25,7 @@ class ColorContainer extends StatefulWidget {
 
 class _ColorContainerState extends State<ColorContainer> {
   late Color color;
+  double textSize = 14;
   @override
   void initState() {
     super.initState();
@@ -33,15 +35,41 @@ class _ColorContainerState extends State<ColorContainer> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          color = Colors.green;
-        });
-      },
-      child: Container(
-        color: color,
-        child: Image.asset('assets/back.jpg'),
-      ),
-    );
+        onTap: () {
+          setState(() {
+            color = Colors.green;
+          });
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+                color: color,
+                //child: Image.asset('assets/back.jpg'),
+                child: Center(
+                  child: Text(
+                    'Test',
+                    style: TextStyle(fontSize: textSize),
+                  ),
+                )),
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    textSize += 2;
+                  });
+                },
+                child: const Text('Увеличить')),
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    textSize -= 2;
+                    if (textSize <= 0) {
+                      textSize = 0;
+                    }
+                  });
+                },
+                child: const Text('Уменьшить'))
+          ],
+        ));
   }
 }
