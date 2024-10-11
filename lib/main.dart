@@ -40,7 +40,7 @@ class _ColorContainerState extends State<ColorContainer> {
       },
       child: Container(
         color: color,
-        //child: Image.asset('assets/back.jpg'),
+        child: Image.asset('assets/back.jpg'),
       ),
     );
   }
