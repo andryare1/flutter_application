@@ -1,17 +1,25 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
+// void main() {
+//   runApp(MaterialApp(
+//       home: Scaffold(
+//     appBar: AppBar(
+//       title: const Text('First App'),
+//       backgroundColor: Colors.purple,
+//       actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
+//     ),
+//     body: const ColorContainer(color: Color.fromARGB(255, 213, 81, 81)),
+//     floatingActionButton:
+//         IconButton(onPressed: () {}, icon: const Icon(Icons.minimize)),
+//   )));
+// }
+
 void main() {
-  runApp(MaterialApp(
-      home: Scaffold(
-    appBar: AppBar(
-      title: const Text('First App'),
-      backgroundColor: Colors.purple,
-      actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
-    ),
-    body: const ColorContainer(color: Color.fromARGB(255, 213, 81, 81)),
-    floatingActionButton:
-        IconButton(onPressed: () {}, icon: const Icon(Icons.minimize)),
-  )));
+  runApp(const MaterialApp(
+    home: PositionedTile(),
+  ));
 }
 
 class ColorContainer extends StatefulWidget {
@@ -26,6 +34,7 @@ class ColorContainer extends StatefulWidget {
 class _ColorContainerState extends State<ColorContainer> {
   late Color color;
   double textSize = 14;
+
   @override
   void initState() {
     super.initState();
@@ -71,5 +80,75 @@ class _ColorContainerState extends State<ColorContainer> {
                 child: const Text('Уменьшить'))
           ],
         ));
+  }
+}
+
+class PositionedTile extends StatefulWidget {
+  const PositionedTile({super.key});
+
+  @override
+  State<PositionedTile> createState() => _PositionedTileState();
+}
+
+class _PositionedTileState extends State<PositionedTile> {
+  late List<Widget> tiles;
+
+  @override
+  void initState() {
+    super.initState();
+    tiles = [
+      StatefullColorTile(
+        key: UniqueKey(),
+      ),
+      StatefullColorTile(
+        key: UniqueKey(),
+      )
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Center(
+            child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: tiles,
+        )),
+        floatingActionButton: FloatingActionButton(
+            onPressed: swapTiles,
+            child: const Icon(
+              Icons.switch_access_shortcut,
+            )),
+        appBar: AppBar(
+            title: const Text('Lecture 3'),
+            backgroundColor: const Color.fromARGB(255, 130, 154, 219)));
+  }
+
+  void swapTiles() {
+    setState(() {
+      tiles.insert(1, tiles.removeAt(0));
+    });
+  }
+}
+
+class StatefullColorTile extends StatefulWidget {
+  const StatefullColorTile({super.key});
+
+  @override
+  State<StatefullColorTile> createState() => _StatelfulColorfulTileState();
+}
+
+class _StatelfulColorfulTileState extends State<StatefullColorTile> {
+  late Color color;
+
+  @override
+  void initState() {
+    super.initState();
+    color = Colors.primaries[Random().nextInt(Colors.primaries.length)];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(width: 100, height: 100, color: color);
   }
 }
