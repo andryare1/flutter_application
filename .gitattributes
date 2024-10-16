@@ -1,0 +1,21 @@
+# Файлы Dart
+*.dart linguist-language=Dart
+
+# Файлы Java для Android
+android/**/*.java linguist-language=Java
+
+# Файлы Kotlin для Android
+android/**/*.kt linguist-language=Kotlin
+
+# Файлы Swift для iOS
+ios/**/*.swift linguist-language=Swift
+
+# Файлы Objective-C для iOS
+ios/**/*.m linguist-language=Objective-C
+
+# Файлы C++ (если есть нативные модули)
+ios/**/*.cpp linguist-language=C++
+android/**/*.cpp linguist-language=C++
+
+# Файлы YAML для конфигурации
+*.yaml linguist-language=YAML
