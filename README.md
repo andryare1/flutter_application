@@ -1,3 +1,3 @@
 # flutter_application_1
 
-A new Flutter project.
+Проект на курсе по языку Flutter от компании neoflex
