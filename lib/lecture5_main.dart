@@ -109,8 +109,8 @@ void baseExample() {
 }
 
 void nullSafetyExample() {
-  int? cc = 5;
-  cc = null;
+  // int? cc = 5;
+  // cc = null;
 
   Never valueIsNotDefined() {
     throw ArgumentError('value Is Not Defined');
@@ -167,12 +167,15 @@ extension ManExtension on Man {
 void oopExample() {
   Person p = Student(avgScore: 5.0, name: 'Andrey', age: 19, sex: true);
 
+  print(p.age);
+
   Man man = Man(age: 70, name: 'Andrey');
   print(man.isOld());
 }
 
 void collectionsExample() {
   final list = <int>[1, 2, 3];
+  print(list);
 
   final list1 = List<String>.empty(growable: true);
   list1.add('1');
