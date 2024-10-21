@@ -1,12 +1,11 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/app_2.dart';
-import 'package:flutter_application_1/app_3.dart';
-import 'package:flutter_application_1/app_4.dart';
+import 'package:flutter_application_1/focus.dart';
+import 'package:flutter_application_1/form.dart';
+//import 'package:flutter_application_1/form.dart';
 
-// void main() {
-//   runApp(MaterialApp(
+void main() {
+// runApp(MaterialApp(
 //       home: Scaffold(
 //     appBar: AppBar(
 //       title: const Text('First App'),
@@ -17,16 +16,26 @@ import 'package:flutter_application_1/app_4.dart';
 //     floatingActionButton:
 //         IconButton(onPressed: () {}, icon: const Icon(Icons.minimize)),
 //   )));
-// }
-
-void main() {
   // runApp(const MaterialApp(
   //   home: PositionedTile(),
   // ));
   //runApp(const App1());
   //runApp(const App2());
   //runApp(const App3());
-  runApp(const App4());
+  //runApp(const App4());
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: FormPage(),
+      // home: FocusForm(),
+    );
+  }
 }
 
 class ColorContainer extends StatefulWidget {
@@ -47,7 +56,7 @@ class _ColorContainerState extends State<ColorContainer> {
     super.initState();
     color = widget.color;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
