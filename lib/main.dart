@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app_1.dart';
+import 'package:flutter_application_1/app_2.dart';
 
 // void main() {
 //   runApp(MaterialApp(
@@ -17,9 +19,11 @@ import 'package:flutter/material.dart';
 // }
 
 void main() {
-  runApp(const MaterialApp(
-    home: PositionedTile(),
-  ));
+  // runApp(const MaterialApp(
+  //   home: PositionedTile(),
+  // ));
+  //runApp(const App1());
+  runApp(const App2());
 }
 
 class ColorContainer extends StatefulWidget {
