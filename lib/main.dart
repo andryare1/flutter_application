@@ -40,7 +40,7 @@ class _ColorContainerState extends State<ColorContainer> {
     super.initState();
     color = widget.color;
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
